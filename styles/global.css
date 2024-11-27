@@ -46,3 +46,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+@media (width <= 376px) {
+  :root {
+    --text-xl: 2rem;
+  }
+}
