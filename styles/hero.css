@@ -3,7 +3,17 @@ section.hero {
   width: 100%;
   padding: 1.25rem 2rem;
   margin-inline: auto;
-  & div {
+
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  gap: 2rem;
+
+  @media (width <= 376px) {
+    flex-direction: column-reverse;
+  }
+
+  & .title {
     & h1 {
       @media (width > 376px) {
         max-width: 696px;
@@ -27,10 +37,10 @@ section.hero {
         & span {
           display: block;
           @media (width > 376px) {
-            animation: slideUpLarge 6s infinite;
+            animation: slideUpLarge 5s 2s infinite;
           }
           @media (width <= 376px) {
-            animation: slideUpSmall 6s infinite;
+            animation: slideUpSmall 5s 2s infinite;
           }
         }
 
@@ -78,7 +88,7 @@ section.hero {
         }
 
         &.play {
-          padding-left: 0;
+          padding-left: 1.25rem;
           & span {
             display: flex;
             padding: 1.5rem 1.5rem;
@@ -101,6 +111,82 @@ section.hero {
         ;
       }
     }
+  }
+
+  & .image {
+    display: block;
+    width: 100%;
+
+    @media (width > 376px) {
+      max-width: 30.5rem;
+      height: 30.5rem;
+    }
+
+    @media (width <= 376px) {
+      max-width: 19.5rem;
+      height: 19.5rem;
+    }
+
+    & .content {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    & img {
+      position: absolute;
+      width: 100%;
+    }
+
+    & img[src*="ellipse"] {
+      width: 94%;
+      top: 3%;
+      left: 3%;
+
+      transform: translateX(200%);
+      animation: slideIn 3s 250ms ease forwards;
+    }
+
+    & img[src*="patins"] {
+      z-index: 1;
+
+      transform: translateX(200%);
+      animation: slideIn 3s ease forwards;
+    }
+
+    & img[src*="stars-1"] {
+      max-width: 20%;
+      top: 30%;
+      z-index: 0;
+
+      opacity: 0;
+      transform: translateX(400%);
+      animation: slideIn 2s 800ms ease both, appear 100ms 800ms both;
+    }
+
+    & img[src*="stars-2"] {
+      max-width: 10%;
+      right: 0;
+      bottom: 35%;
+
+      transform: translateX(400%);
+      animation: slideIn 2.2s 800ms ease both;
+    }
+  }
+}
+
+@keyframes slideIn {
+  50% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
   }
 }
 
