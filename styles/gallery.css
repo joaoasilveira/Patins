@@ -48,10 +48,10 @@ section.gallery {
       line-height: 0;
 
       animation: image-appear linear backwards;
-      animation-timeline: view(99% 20%);
+      animation-timeline: view(90% 10%);
 
       &[data-delay] {
-        animation-timeline: view(99% 25%) ;
+        animation-timeline: view(85% 15%) ;
       }
 
       & > img {

@@ -1,0 +1,114 @@
+footer {
+  max-width: 100%;
+  width: 100%;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  padding-inline: 2rem;
+
+  @media (width <= 376px) {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+    padding-inline: 1.5rem;
+  }
+
+  & .logo {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+
+    font: 700 1.25rem/1.3 'Syne', sans-serif;
+    & img {
+        transition: transform 400ms;
+      }
+
+    & img[src*="logo"]:hover {
+        transform: rotate(90deg);
+      }
+    }
+
+  & nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    & a {
+      width: fit-content;
+      position: relative;
+
+      &:hover::after {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+    }
+
+    & a::after {
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: var(--snitap-sky-mid);
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      transform: scaleX(0);
+      transition: transform 200ms linear;
+    }
+
+    @media (width <= 376px) {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+
+  & .social-links {
+    display: flex;
+    align-items: center;
+    
+    & a {
+      width: 2.5rem;
+      height: 2.5rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 5rem;
+
+      position: relative;
+
+      &:hover::before {
+        scale: 1;
+      }
+
+      & img {
+        width: 1.5rem;
+        height: auto;
+      }
+
+      &::before {
+        content: "";
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+        background-color: var(--snitap-sun);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        scale: 0;
+        transition: scale 200ms;
+      }
+    }
+  }
+}
