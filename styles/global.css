@@ -50,5 +50,7 @@ a {
 @media (width <= 376px) {
   :root {
     --text-xl: 2rem;
+    --text-lg: 1.5rem;
+    --text-sm: 0.75rem;
   }
 }
